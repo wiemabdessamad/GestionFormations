@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dda8a8;
+    margin: 20px;
+    }
+    h1 {
+    color:#582121;
+    }
+    p {
+    margin:10px 0;
+}
+form {
+    background: rgb(195, 103, 150);
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+    }
+    input {
+    width: 100%;
+    padding: 8px;
+    }
+    input[type="submit"] {
+    background-color: #7c3279;
+    color: white;
+    border: none;
+    cursor: pointer;
+    }
