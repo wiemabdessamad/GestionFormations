@@ -1,28 +1,25 @@
 <?php
+// traitement.php
+// TP3 → TP4 — Réception, validation et affichage des données du formulaire profil
+
+require "includes/fonctions.php";
+require "includes/validation.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = trim($_POST["nom"]);
-    $prenom = trim($_POST["prenom"]);
-    $email = trim($_POST["email"]);
 
-    $erreur = "";
+    // Récupérer et nettoyer les données (TP4 extension)
+    $nom    = nettoyer($_POST["nom"]    ?? '');
+    $prenom = nettoyer($_POST["prenom"] ?? '');
+    $email  = nettoyer($_POST["email"]  ?? '');
 
-    if (empty($nom)) {
-        $erreur .= "Le nom est obligatoire.<br>";
-    }
-    if (empty($prenom)) {
-        $erreur .= "Le prénom est obligatoire.<br>";
-    }
-    if (empty($email)) {
-        $erreur .= "L'email est obligatoire.<br>";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $erreur .= "Format email invalide.<br>";
-    }
+    // Valider les données (TP4)
+    $erreur = validerFormulaire($nom, $prenom, $email);
 
+    // Affichage des erreurs ou du succès
     if (!empty($erreur)) {
-        echo "<div style='color:red;'>$erreur</div>";
+        echo afficherErreur($erreur);
     } else {
-        echo "<div style='color:green;'>Formulaire valide ✔</div>";
-        echo "Nom : $nom <br> Prénom : $prenom <br> Email : $email";
+        echo afficherSucces($nom, $prenom, $email);
     }
 }
 ?>

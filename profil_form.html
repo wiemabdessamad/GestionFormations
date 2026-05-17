@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Formulaire Profil</title>
-<link rel="stylesheet" href="css/style.css">
+    <title>Formulaire Profil</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<h1>Formulaire Profil Utilisateur</h1>
-<form>
-<label>Nom :</label><br>
-<input type="text"><br><br>
-<label>Prénom :</label><br>
-<input type="text"><br><br>
-<label>Email :</label><br>
-<input type="email"><br><br>
-<input type="submit" value="Envoyer">
-</form>
+
+<h1 style="margin:20px;">Formulaire Profil Utilisateur</h1>
+
+<div style="margin:20px;">
+    <form method="POST" action="traitement.php">
+        <label>Nom :</label><br>
+        <input type="text" name="nom" placeholder="Votre nom"><br><br>
+
+        <label>Prénom :</label><br>
+        <input type="text" name="prenom" placeholder="Votre prénom"><br><br>
+
+        <label>Email :</label><br>
+        <input type="email" name="email" placeholder="votre@email.com"><br><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</div>
+
 </body>
 </html>
